@@ -43,6 +43,20 @@ namespace StudentTimetable_Mark_Safonov_
             return null;
         }
 
+        public void RemoveClassesById(int index, int id)
+        {
+            foreach (Classes classes in DayWeeks[index].ClassesList)
+            {
+                if (classes.Id == id)
+                {
+                    DayWeeks[index].ClassesList.Remove(classes);
+                    return;
+                }
+            }
+
+            MessageBox.Show("Пара не найдена");
+        }
+
         public void ShowData(ListView listView, ListViewGroupCollection listViewGroupCollection)
         {
             ListViewItem items = null;

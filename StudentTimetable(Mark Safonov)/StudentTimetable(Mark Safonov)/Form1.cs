@@ -23,7 +23,7 @@ namespace StudentTimetable_Mark_Safonov_
             InitializeComponent();
             _listViewGroupCollections = timetableView.Groups;
             _timetable = new Timetable(6);
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            dayWeeksComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             startMaskedBox.Mask = "00:00";
             endMaskedBox.Mask = "00:00";
@@ -42,10 +42,10 @@ namespace StudentTimetable_Mark_Safonov_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex >= 0)
+            if (dayWeeksComboBox.SelectedIndex >= 0)
             {
                 timetableView.Items.Clear();
-                _timetable.AddClasses(comboBox1.SelectedIndex,NameClassesBox.Text,startMaskedBox.Text,endMaskedBox.Text,typeBox.Text,teacherBox.Text,audienceBox.Text);
+                _timetable.AddClasses(dayWeeksComboBox.SelectedIndex,NameClassesBox.Text,startMaskedBox.Text,endMaskedBox.Text,typeBox.Text,teacherBox.Text,audienceBox.Text);
                 _timetable.ShowData(timetableView,_listViewGroupCollections);
             }
             else
@@ -100,11 +100,11 @@ namespace StudentTimetable_Mark_Safonov_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex >= 0)
+            if (dayWeeksComboBox.SelectedIndex >= 0)
             {
-                if (_timetable.GetClassesById(comboBox1.SelectedIndex, (int)numericUpDown1.Value) != null)
+                if (_timetable.GetClassesById(dayWeeksComboBox.SelectedIndex, (int)idNumeric.Value) != null)
                 {
-                    Redactor redactor = new Redactor(_timetable.GetClassesById(comboBox1.SelectedIndex, (int)numericUpDown1.Value));
+                    Redactor redactor = new Redactor(_timetable.GetClassesById(dayWeeksComboBox.SelectedIndex, (int)idNumeric.Value));
                     redactor.Show();
                 }
                 else
@@ -175,6 +175,13 @@ namespace StudentTimetable_Mark_Safonov_
         private void button6_Click(object sender, EventArgs e)
         {
             timetableView.Items.Clear();   
+            _timetable.ShowData(timetableView,_listViewGroupCollections);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            _timetable.RemoveClassesById(dayWeeksComboBox.SelectedIndex,(int)idNumeric.Value);
+            timetableView.Items.Clear();
             _timetable.ShowData(timetableView,_listViewGroupCollections);
         }
     }

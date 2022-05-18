@@ -29,12 +29,12 @@ namespace StudentTimetable_Mark_Safonov_
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Понедельник", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Вторник", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Среда", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Четверг", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Пятница", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Суббота", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Понедельник", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Вторник", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Среда", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Четверг", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Пятница", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Суббота", System.Windows.Forms.HorizontalAlignment.Left);
             this.timetableView = new System.Windows.Forms.ListView();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.subject = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,7 +42,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.durationClasses = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.teacher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.audience = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dayWeeksComboBox = new System.Windows.Forms.ComboBox();
             this.NameClassesBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,16 +59,17 @@ namespace StudentTimetable_Mark_Safonov_
             this.endMaskedBox = new System.Windows.Forms.MaskedTextBox();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.idNumeric = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.button7 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.idNumeric)).BeginInit();
             this.SuspendLayout();
             // 
-            // listView1
+            // timetableView
             // 
             this.timetableView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
@@ -78,28 +79,28 @@ namespace StudentTimetable_Mark_Safonov_
             this.teacher,
             this.audience});
             this.timetableView.GridLines = true;
-            listViewGroup13.Header = "Понедельник";
-            listViewGroup13.Name = "Moneday";
-            listViewGroup14.Header = "Вторник";
-            listViewGroup14.Name = "listViewGroup2";
-            listViewGroup15.Header = "Среда";
-            listViewGroup15.Name = "listViewGroup3";
-            listViewGroup16.Header = "Четверг";
-            listViewGroup16.Name = "listViewGroup4";
-            listViewGroup17.Header = "Пятница";
-            listViewGroup17.Name = "listViewGroup5";
-            listViewGroup18.Header = "Суббота";
-            listViewGroup18.Name = "listViewGroup6";
+            listViewGroup1.Header = "Понедельник";
+            listViewGroup1.Name = "Moneday";
+            listViewGroup2.Header = "Вторник";
+            listViewGroup2.Name = "listViewGroup2";
+            listViewGroup3.Header = "Среда";
+            listViewGroup3.Name = "listViewGroup3";
+            listViewGroup4.Header = "Четверг";
+            listViewGroup4.Name = "listViewGroup4";
+            listViewGroup5.Header = "Пятница";
+            listViewGroup5.Name = "listViewGroup5";
+            listViewGroup6.Header = "Суббота";
+            listViewGroup6.Name = "listViewGroup6";
             this.timetableView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup13,
-            listViewGroup14,
-            listViewGroup15,
-            listViewGroup16,
-            listViewGroup17,
-            listViewGroup18});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
             this.timetableView.HideSelection = false;
             this.timetableView.Location = new System.Drawing.Point(12, 12);
-            this.timetableView.Name = "listView1";
+            this.timetableView.Name = "timetableView";
             this.timetableView.Size = new System.Drawing.Size(648, 461);
             this.timetableView.TabIndex = 0;
             this.timetableView.UseCompatibleStateImageBehavior = false;
@@ -138,18 +139,18 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.dayWeeksComboBox.FormattingEnabled = true;
+            this.dayWeeksComboBox.Items.AddRange(new object[] {
             "Понедельник",
             "Вторник",
             "Среда",
             "Четверг",
             "Пятница",
             "Суббота"});
-            this.comboBox1.Location = new System.Drawing.Point(666, 140);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(123, 24);
-            this.comboBox1.TabIndex = 1;
+            this.dayWeeksComboBox.Location = new System.Drawing.Point(666, 140);
+            this.dayWeeksComboBox.Name = "comboBox1";
+            this.dayWeeksComboBox.Size = new System.Drawing.Size(123, 24);
+            this.dayWeeksComboBox.TabIndex = 1;
             // 
             // NameClassesBox
             // 
@@ -163,7 +164,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(793, 175);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 17);
+            this.label1.Size = new System.Drawing.Size(140, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Название предмета";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -183,7 +184,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(794, 203);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 17);
+            this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Вид занятия";
             // 
@@ -208,7 +209,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(794, 232);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 17);
+            this.label3.Size = new System.Drawing.Size(93, 16);
             this.label3.TabIndex = 8;
             this.label3.Text = "Начало пары";
             // 
@@ -217,7 +218,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(794, 288);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 17);
+            this.label4.Size = new System.Drawing.Size(111, 16);
             this.label4.TabIndex = 10;
             this.label4.Text = "Преподователь";
             // 
@@ -233,7 +234,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(794, 316);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 17);
+            this.label5.Size = new System.Drawing.Size(78, 16);
             this.label5.TabIndex = 12;
             this.label5.Text = "Аудитория";
             // 
@@ -249,7 +250,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(794, 147);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 17);
+            this.label6.Size = new System.Drawing.Size(90, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "День недели";
             // 
@@ -258,7 +259,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(794, 260);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 17);
+            this.label7.Size = new System.Drawing.Size(83, 16);
             this.label7.TabIndex = 15;
             this.label7.Text = "Конец пары";
             // 
@@ -290,26 +291,26 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(667, 112);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(93, 22);
-            this.numericUpDown1.TabIndex = 18;
+            this.idNumeric.Location = new System.Drawing.Point(667, 112);
+            this.idNumeric.Name = "numericUpDown1";
+            this.idNumeric.Size = new System.Drawing.Size(93, 22);
+            this.idNumeric.TabIndex = 18;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(766, 114);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(22, 17);
+            this.label8.Size = new System.Drawing.Size(21, 16);
             this.label8.TabIndex = 19;
             this.label8.Text = "№";
             // 
             // button3
             // 
             this.button3.AccessibleDescription = "";
-            this.button3.Location = new System.Drawing.Point(793, 111);
+            this.button3.Location = new System.Drawing.Point(795, 71);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 22);
+            this.button3.Size = new System.Drawing.Size(121, 27);
             this.button3.TabIndex = 20;
             this.button3.Text = "Редактировать";
             this.button3.UseVisualStyleBackColor = true;
@@ -339,23 +340,35 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             this.button6.Location = new System.Drawing.Point(667, 41);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(122, 23);
+            this.button6.Size = new System.Drawing.Size(122, 26);
             this.button6.TabIndex = 23;
             this.button6.Text = "Обновить";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.AccessibleDescription = "";
+            this.button7.Location = new System.Drawing.Point(795, 107);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(121, 27);
+            this.button7.TabIndex = 24;
+            this.button7.Text = "Удалить";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 485);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.idNumeric);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.label7);
@@ -372,11 +385,11 @@ namespace StudentTimetable_Mark_Safonov_
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NameClassesBox);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.dayWeeksComboBox);
             this.Controls.Add(this.timetableView);
             this.Name = "Form1";
             this.Text = "Расписание студента";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,7 +406,7 @@ namespace StudentTimetable_Mark_Safonov_
         private System.Windows.Forms.TextBox NameClassesBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox dayWeeksComboBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox typeBox;
         private System.Windows.Forms.MaskedTextBox startMaskedBox;
@@ -408,12 +421,13 @@ namespace StudentTimetable_Mark_Safonov_
         private System.Windows.Forms.MaskedTextBox endMaskedBox;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown idNumeric;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
 
