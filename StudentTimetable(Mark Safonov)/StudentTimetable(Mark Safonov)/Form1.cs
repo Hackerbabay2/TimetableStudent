@@ -59,6 +59,7 @@ namespace StudentTimetable_Mark_Safonov_
             if (!e.IsValidInput)
             {
                 MessageBox.Show("не существует такого времени");
+                startMaskedBox.Text = "00:00";
             }
         }
 
@@ -67,6 +68,7 @@ namespace StudentTimetable_Mark_Safonov_
             if (!e.IsValidInput)
             {
                 MessageBox.Show("не существует такого времени");
+                endMaskedBox.Text = "00:00";
             }
         }
 
@@ -150,6 +152,7 @@ namespace StudentTimetable_Mark_Safonov_
                 if (openFileDialog.FileName.EndsWith(".xml"))
                 {
                     _timetable = DeseriacliezeXml(openFileDialog.FileName);
+                    timetableView.Items.Clear();
                     _timetable.ShowData(timetableView,_listViewGroupCollections);
                 }
             }
