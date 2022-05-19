@@ -158,7 +158,7 @@ namespace StudentTimetable_Mark_Safonov_
             }
             catch (Exception exeption)
             {
-                MessageBox.Show(exeption.ToString());
+                MessageBox.Show("Программа не смогла обработать эти данные, побробуйте перезаписать☺");
             }
         }
 
@@ -186,6 +186,11 @@ namespace StudentTimetable_Mark_Safonov_
             _timetable.RemoveClassesById(dayWeeksComboBox.SelectedIndex,(int)idNumeric.Value);
             timetableView.Items.Clear();
             _timetable.ShowData(timetableView,_listViewGroupCollections);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.startMaskedBox = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.typeBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.DoneButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.NameClassesBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -55,6 +55,9 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             // endMaskedBox
             // 
+            this.endMaskedBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.endMaskedBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.endMaskedBox.ForeColor = System.Drawing.Color.White;
             this.endMaskedBox.Location = new System.Drawing.Point(12, 99);
             this.endMaskedBox.Name = "endMaskedBox";
             this.endMaskedBox.Size = new System.Drawing.Size(121, 22);
@@ -73,6 +76,9 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             // audienceBox
             // 
+            this.audienceBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.audienceBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.audienceBox.ForeColor = System.Drawing.Color.White;
             this.audienceBox.Location = new System.Drawing.Point(12, 155);
             this.audienceBox.Name = "audienceBox";
             this.audienceBox.Size = new System.Drawing.Size(122, 22);
@@ -89,6 +95,9 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             // teacherBox
             // 
+            this.teacherBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.teacherBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teacherBox.ForeColor = System.Drawing.Color.White;
             this.teacherBox.Location = new System.Drawing.Point(12, 127);
             this.teacherBox.Name = "teacherBox";
             this.teacherBox.Size = new System.Drawing.Size(122, 22);
@@ -105,6 +114,9 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             // startMaskedBox
             // 
+            this.startMaskedBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.startMaskedBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.startMaskedBox.ForeColor = System.Drawing.Color.White;
             this.startMaskedBox.Location = new System.Drawing.Point(12, 71);
             this.startMaskedBox.Name = "startMaskedBox";
             this.startMaskedBox.Size = new System.Drawing.Size(121, 22);
@@ -123,20 +135,26 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             // typeBox
             // 
+            this.typeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.typeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.typeBox.ForeColor = System.Drawing.Color.White;
             this.typeBox.Location = new System.Drawing.Point(12, 42);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(122, 22);
             this.typeBox.TabIndex = 19;
             // 
-            // button1
+            // DoneButton
             // 
-            this.button1.Location = new System.Drawing.Point(13, 183);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(285, 38);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Применить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.DoneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.DoneButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DoneButton.ForeColor = System.Drawing.Color.White;
+            this.DoneButton.Location = new System.Drawing.Point(13, 183);
+            this.DoneButton.Name = "DoneButton";
+            this.DoneButton.Size = new System.Drawing.Size(285, 38);
+            this.DoneButton.TabIndex = 18;
+            this.DoneButton.Text = "Применить";
+            this.DoneButton.UseVisualStyleBackColor = false;
+            this.DoneButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -149,6 +167,9 @@ namespace StudentTimetable_Mark_Safonov_
             // 
             // NameClassesBox
             // 
+            this.NameClassesBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.NameClassesBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NameClassesBox.ForeColor = System.Drawing.Color.White;
             this.NameClassesBox.Location = new System.Drawing.Point(12, 12);
             this.NameClassesBox.Name = "NameClassesBox";
             this.NameClassesBox.Size = new System.Drawing.Size(122, 22);
@@ -159,6 +180,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(310, 244);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.endMaskedBox);
@@ -170,11 +192,15 @@ namespace StudentTimetable_Mark_Safonov_
             this.Controls.Add(this.startMaskedBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.typeBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NameClassesBox);
+            this.ForeColor = System.Drawing.Color.White;
+            this.MaximizeBox = false;
             this.Name = "Redactor";
+            this.ShowIcon = false;
             this.Text = "Redactor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Redactor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,7 +219,7 @@ namespace StudentTimetable_Mark_Safonov_
         private System.Windows.Forms.MaskedTextBox startMaskedBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox typeBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DoneButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NameClassesBox;
     }
