@@ -47,7 +47,6 @@ namespace StudentTimetable_Mark_Safonov_
             this.label1 = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.typeBox = new System.Windows.Forms.TextBox();
             this.startMaskedBox = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,6 +65,8 @@ namespace StudentTimetable_Mark_Safonov_
             this.LoadButton = new System.Windows.Forms.Button();
             this.ReloadButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.typeBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.idNumeric)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,27 +210,18 @@ namespace StudentTimetable_Mark_Safonov_
             this.label2.TabIndex = 6;
             this.label2.Text = "Вид занятия";
             // 
-            // typeBox
-            // 
-            this.typeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.typeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.typeBox.ForeColor = System.Drawing.Color.White;
-            this.typeBox.Location = new System.Drawing.Point(666, 198);
-            this.typeBox.MaxLength = 100;
-            this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(123, 22);
-            this.typeBox.TabIndex = 5;
-            // 
             // startMaskedBox
             // 
             this.startMaskedBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.startMaskedBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.startMaskedBox.ForeColor = System.Drawing.Color.White;
             this.startMaskedBox.Location = new System.Drawing.Point(666, 226);
+            this.startMaskedBox.Mask = "00:00";
             this.startMaskedBox.Name = "startMaskedBox";
             this.startMaskedBox.Size = new System.Drawing.Size(123, 22);
             this.startMaskedBox.TabIndex = 7;
             this.startMaskedBox.ValidatingType = typeof(System.DateTime);
+            this.startMaskedBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.startMaskedBox_MaskInputRejected);
             this.startMaskedBox.TypeValidationCompleted += new System.Windows.Forms.TypeValidationEventHandler(this.startMaskedBox_TypeValidationCompleted);
             // 
             // label3
@@ -250,7 +242,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 17);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Преподователь";
+            this.label4.Text = "Преподаватель";
             // 
             // teacherBox
             // 
@@ -308,6 +300,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.endMaskedBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.endMaskedBox.ForeColor = System.Drawing.Color.White;
             this.endMaskedBox.Location = new System.Drawing.Point(666, 254);
+            this.endMaskedBox.Mask = "00:00";
             this.endMaskedBox.Name = "endMaskedBox";
             this.endMaskedBox.Size = new System.Drawing.Size(123, 22);
             this.endMaskedBox.TabIndex = 14;
@@ -424,6 +417,38 @@ namespace StudentTimetable_Mark_Safonov_
             this.RemoveButton.UseVisualStyleBackColor = false;
             this.RemoveButton.Click += new System.EventHandler(this.button7_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(795, 351);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(126, 21);
+            this.checkBox1.TabIndex = 25;
+            this.checkBox1.Text = "Очищать поля";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // typeBox
+            // 
+            this.typeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.typeBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.typeBox.ForeColor = System.Drawing.Color.White;
+            this.typeBox.FormattingEnabled = true;
+            this.typeBox.Items.AddRange(new object[] {
+            "Урок",
+            "Контрольная работа",
+            "Практическая",
+            "Лабараторная",
+            "Теоретическое занятие",
+            "Консультация",
+            "Самостоятельная работа",
+            "Учебная практика",
+            "Курсовое проектирование"});
+            this.typeBox.Location = new System.Drawing.Point(666, 198);
+            this.typeBox.Name = "typeBox";
+            this.typeBox.Size = new System.Drawing.Size(121, 24);
+            this.typeBox.TabIndex = 26;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -432,6 +457,8 @@ namespace StudentTimetable_Mark_Safonov_
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(952, 485);
+            this.Controls.Add(this.typeBox);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.ReloadButton);
             this.Controls.Add(this.LoadButton);
@@ -451,7 +478,6 @@ namespace StudentTimetable_Mark_Safonov_
             this.Controls.Add(this.label3);
             this.Controls.Add(this.startMaskedBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.typeBox);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NameClassesBox);
@@ -460,8 +486,7 @@ namespace StudentTimetable_Mark_Safonov_
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.Text = "Расписание студента";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Text = "Расписание";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.idNumeric)).EndInit();
             this.ResumeLayout(false);
@@ -482,7 +507,6 @@ namespace StudentTimetable_Mark_Safonov_
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.ComboBox dayWeeksComboBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox typeBox;
         private System.Windows.Forms.MaskedTextBox startMaskedBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -502,6 +526,8 @@ namespace StudentTimetable_Mark_Safonov_
         private System.Windows.Forms.Button LoadButton;
         private System.Windows.Forms.Button ReloadButton;
         private System.Windows.Forms.Button RemoveButton;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox typeBox;
     }
 }
 

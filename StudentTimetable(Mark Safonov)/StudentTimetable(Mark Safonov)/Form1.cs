@@ -24,15 +24,6 @@ namespace StudentTimetable_Mark_Safonov_
             _listViewGroupCollections = timetableView.Groups;
             _timetable = new Timetable(6);
             dayWeeksComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            startMaskedBox.Mask = "00:00";
-            endMaskedBox.Mask = "00:00";
-
-            startMaskedBox.ValidatingType = typeof(DateTime);
-            startMaskedBox.TypeValidationCompleted += new TypeValidationEventHandler(startMaskedBox_TypeValidationCompleted);
-
-            endMaskedBox.ValidatingType = typeof(DateTime);
-            endMaskedBox.TypeValidationCompleted += new TypeValidationEventHandler(endMaskedBox_TypeValidationCompleted);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -47,6 +38,11 @@ namespace StudentTimetable_Mark_Safonov_
                 timetableView.Items.Clear();
                 _timetable.AddClasses(dayWeeksComboBox.SelectedIndex,NameClassesBox.Text,startMaskedBox.Text,endMaskedBox.Text,typeBox.Text,teacherBox.Text,audienceBox.Text);
                 _timetable.ShowData(timetableView,_listViewGroupCollections);
+                
+                if (checkBox1.Checked == true)
+                {
+                    ClearFileds();
+                }
             }
             else
             {
@@ -54,9 +50,20 @@ namespace StudentTimetable_Mark_Safonov_
             }
         }
 
+        private void ClearFileds()
+        {
+            dayWeeksComboBox.Text = null;
+            NameClassesBox.Text = null;
+            startMaskedBox.Text = null;
+            endMaskedBox.Text = null;
+            typeBox.Text = null;
+            teacherBox.Text = null;
+            audienceBox.Text = null;
+        }
+
         private void startMaskedBox_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
         {
-            if (!e.IsValidInput)
+            if (e.IsValidInput == false)
             {
                 MessageBox.Show("не существует такого времени");
                 startMaskedBox.Text = "00:00";
@@ -65,7 +72,7 @@ namespace StudentTimetable_Mark_Safonov_
 
         private void endMaskedBox_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
         {
-            if (!e.IsValidInput)
+            if (e.IsValidInput == false)
             {
                 MessageBox.Show("не существует такого времени");
                 endMaskedBox.Text = "00:00";
@@ -158,7 +165,7 @@ namespace StudentTimetable_Mark_Safonov_
             }
             catch (Exception exeption)
             {
-                MessageBox.Show("Программа не смогла обработать эти данные, побробуйте перезаписать☺");
+                MessageBox.Show($"Программа не смогла обработать эти данные, побробуйте перезаписать☺ \n{exeption}");
             }
         }
 
@@ -189,6 +196,11 @@ namespace StudentTimetable_Mark_Safonov_
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startMaskedBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
